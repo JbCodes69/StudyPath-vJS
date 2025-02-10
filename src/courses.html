@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <div id="app-bar">
+    </div>
+    <div class="container p-5">
+        <div class=" mb-3 p-3 border" id="Course Bar">
+            <button id="openCourseDialog" class="px-1 bg-white rounded-sm border">
+                <span>Add Courses</span>
+            </button>
+        </div>
+
+        <div id="courseDialog" class="hidden h-[100dvh] w-full z-10 items-start justify-center absolute top-0 left-0"
+            style="background-color: rgba(0, 0, 0 , 0.6 );">
+            <div id="anime" class="card dialogCard min-w-[30%] p-4 mt-5">
+                <div>
+                    <h1 class="font-bold">Course Form</h1>
+                </div>
+
+                <div>
+                    <form id="newCourseForm" class="border bg-white min-w-[400px] rounded-md p-4">
+
+                        <input
+                            class="border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg outline-none"
+                            placeholder="Course Name" type="text" name="course" id="courseform"><br>
+                        <button type="button" name="close-btn"
+                            class="close-btn border px-2 py-1 uppercase mt-2 hover:bg-red-700 hover:text-white transition ease-out duration-500">close
+                            dialog</button>
+                        <button type="submit"
+                            class="border-2 px-2 py-1 uppercase mt-2 hover:animate-pulse delay-700  bg-green-600 text-white transition ease-out duration-500">Add</button>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <table class="border w-full mt-5">
+            <thead class="border-b">
+                <th class="text-left">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Action</th>
+            </thead>
+            <tbody id="coursesTb" class="border-b">
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="./component.js"></script>
+    <script src="./courses-backend.js"></script>
+</body>
+
+</html>

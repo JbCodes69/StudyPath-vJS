@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+    <!-- App Bar For Dashboard -->
+            
+    <div id="app-bar"></div>
+    <div id="menu"></div>
+
+    <!-- container -->
+    <div class="container p-5">
+
+        <!-- filter bar -->
+        <div class=" mb-3 p-3 border" id="Filter Bar">
+            <button class="px-1 bg-white rounded-sm border">
+                <span>Filter Box</span>
+            </button>
+        </div>
+      
+        <!-- summary area -->
+        <div class="summary-bar grid grid-cols-4 gap-3 max-w-[30] h-full p-3 mb-3 border">
+            <div class="rounded-sm shadow-sm bg-red-200 py-2 px-3 max-sm:col-span-4 max-md:col-span-2" id="noCourses">
+                <p class="font-bold uppercase text-sm text-gray-700">No. Of Courses</p>
+                <p class="text-center text-red-600 font-bold text-4xl mt-1 mb-3 value">0</p>
+            </div>
+            <div class="rounded-sm shadow-sm bg-red-200 py-2 px-3 max-sm:col-span-4 max-md:col-span-2" id="noTasks">
+                <p class="font-bold uppercase text-sm text-gray-700">No. Tasks Today</p>
+                <p class="text-center text-red-600 font-bold text-4xl mt-1 mb-3 value">0</p>
+            </div>
+            <div class="rounded-sm shadow-sm bg-red-200 py-2 px-3 max-sm:col-span-4 max-md:col-span-2" id="noComTasks">
+                <p class="font-bold uppercase text-sm text-gray-700">No. Of Completed Tasks Today</p>
+                <p class="text-center text-red-600 font-bold text-4xl mt-1 mb-3 value">0</p>
+            </div>
+            <div class="rounded-sm shadow-sm bg-red-200 py-2 px-3 max-sm:col-span-4 max-md:col-span-2" id="noHrs">
+                <p class="font-bold uppercase text-sm text-gray-700">No. Of Hours Today</p>
+                <p class="text-center text-red-600 font-bold text-4xl mt-1 mb-3 value">0</p>
+            </div>
+        </div>
+
+        <!-- charts -->
+        <div class="chart-box p-3">
+            <canvas id="performance-chart" height="90vh"></canvas>
+        </div>
+
+
+
+
+        <script src="./component.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./dashboard-backend.js"></script>
+</body>
+<script>
+    const ctx = document.getElementById('performance-chart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Daily Performance Chart',
+          data: [12, 19, 3, 5, 2, 3, 10],
+          borderWidth: 1,
+          backgroundColor: '#f87171',
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+                display:  true,
+                text: 'Hours'
+            }
+          },
+          x: {
+            title: {
+                display:  true,
+                text: 'Days'
+            },
+          }
+        }
+      }
+    });
+  </script>
+
+</html>

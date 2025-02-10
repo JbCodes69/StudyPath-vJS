@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./tmjs/styles/timetablejs.css">
+</head>
+
+<body>
+    <div id="app-bar"></div>
+
+    <div class="container p-5">
+        <div class=" mb-3 p-3 border" id="Course Bar">
+            <button class="px-1 bg-white rounded-sm border" id="openScheduleDialog">
+                <span>Add Schedule</span>
+            </button>
+        </div>
+
+        <div class="timetable w-full mt-4"></div>
+    </div>
+
+    <div id="scheduleDialog"
+        class="hidden h-[100dvh] w-full z-10 items-start justify-center absolute top-0 left-0 transition-all"
+        style="background-color: rgba(0, 0, 0 , 0.6 );">
+        <div id="trans" class="card items transition-opacity duration-100 min-w-[30%] p-4 mt-5">
+            <!-- title -->
+            <div>
+                <h1 class="font-bold">Here is the Schedule form</h1>
+            </div>
+
+            <!-- content -->
+            <div>
+                <form id="newScheduleForm" class="border bg-white min-w-[400px] rounded-md p-4">
+                    <!-- <label class="m-5 flex text-lg" for="">Courses*</label> -->
+                    <select class="border-b-2 text-left border-b-gray-400 p-3 w-full border-x-white mb-3 text-lg"
+                        id="courseSelect" name="courses">
+                        <option value="">Select Courses</option>
+                    </select>
+
+                    <!-- <label class="m-5 flex text-sm font-bold" for="">Days*</label> -->
+                    <select class="text-left border-b-2 border-b-gray-400 p-3 w-full border-x-white mb-3 text-lg"
+                        id="days" name="day">
+                        <option value="">Days</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+
+                    <!-- <label class=" m-5 flex text-sm font-bold" for="">StartTime*</label> -->
+                    <div class="grid grid-cols-2 gap-2 mb-3">
+                        <select class="text-left p-3 border-b-2 border-b-gray-400 py-2  border-x-white mb-2 text-lg"
+                            id="start-time">
+                            <option value="">StartTime</option>
+                        </select>
+                        <select class="text-left p-3 border-b-2 border-b-gray-400 py-2 border-x-white mb-2 text-lg"
+                            id="st-minutes" name="min1">
+                            <option value="0">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
+
+                    <!-- <label class="justify-center items-center flex text-lg font-bold" for="">EndTime*</label> -->
+                    <div class="grid grid-cols-2 gap-2">
+                        <select
+                            class="text-left p-3 border-b-2 border-b-gray-400 py-2 w-full border-x-white mb-2 text-lg"
+                            id="end-time">
+                            <option value="">Greater Than StartTime Till Max-23</option>
+
+                        </select>
+                        <select
+                            class="text-left p-3 border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg"
+                            id="end-minutes" name="min2">
+                            <option value="0">00</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
+
+
+                    <!-- actions -->
+                    <div>
+                        <button
+                            class="close-btn border px-2 py-1 uppercase mt-2 hover:bg-red-700 hover:text-white transition ease-out duration-500"
+                            type="button">close dialog</button>
+                        <button
+                            class="submitButton border-2 px-2 py-1 uppercase mt-2 hover:animate-pulse delay-700  bg-green-600 text-white transition ease-out duration-500"
+                            type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./component.js"></script>
+    <script src="./tmjs/scripts/timetable.js"></script>
+    <script src="./timetable-backend.js"></script>
+</body>
+<script>
+
+    const openScheduleDialogBtn = document.getElementById("openScheduleDialog")
+    const openScheduleDialog = document.getElementById("scheduleDialog")
+
+    openScheduleDialogBtn.addEventListener('click', () => {
+        openScheduleDialog.classList.replace('hidden', 'flex')
+        let clBtn = openScheduleDialog.getElementsByClassName('close-btn')
+        clBtn[0].addEventListener('click', () => {
+            openScheduleDialog.classList.replace('flex', 'hidden')
+        })
+    })
+
+    let stSelect = document.getElementById("start-time")
+    // playground
+    for (let i = 0; i < 24; i++) {
+        if (i == 0) {
+            stSelect.insertAdjacentHTML('beforeend', `<option value="${i}">12 am</option>`)
+        } else if (i > 11) {
+            stSelect.insertAdjacentHTML('beforeend', `<option value="${i}">${i} pm</option>`)
+        } else {
+            stSelect.insertAdjacentHTML('beforeend', `<option value="${i}">${i} am</option>`)
+        }
+
+    }
+
+    let ends = document.getElementById("end-time")
+    // playground
+    for (let i = 0; i < 24; i++) {
+        if (i == 0) {
+            ends.insertAdjacentHTML('beforeend', `<option value="${i}">12 am</option>`)
+        } else if (i > 11) {
+            ends.insertAdjacentHTML('beforeend', `<option value="${i}">${i} pm</option>`)
+        } else {
+            ends.insertAdjacentHTML('beforeend', `<option value="${i}">${i} am</option>`)
+        }
+
+    }
+
+</script>
+
+
+</html>

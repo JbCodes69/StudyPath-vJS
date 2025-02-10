@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gray-100 h-dvh flex flex-col items-center justify-center">
+    <div class="logo flex items-center absolute top-5 left-5">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="size-9 w-10 bg-red-600 text-white rounded">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+        </svg>
+        <h1 class="font-bold uppercase ml-3">
+            <a href="/src/StudyPath.html" class="text-red-600 sm:text-red-600">Study Path</a>
+        </h1>
+    </div>
+    <div class="dpl-layer border-t-2 border-x-2 h-[0.3rem] rounded-t-md bg-white min-w-[380px]"></div>
+    <form class=" border bg-white min-w-[400px] rounded-md">
+        <h1 class="mt-10 mb-6 font-bold uppercase text-red-600 text-2xl pl-9 border-l-4 border-red-600">Sign Up</h1>
+        <div class="create flex-col items-center mb-10 justify-center px-10">
+            <!-- <label class="flex items-center justify-center" for="name">Full Name:</label> -->
+            <input class="flex border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg outline-none"
+                placeholder="Full Name" type="text" name="name" id="name"><br>
+
+            <!-- <label class="flex items-center justify-center" for="Email">Email:</label> -->
+            <input class="flex border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg outline-none"
+                placeholder="Email" type="email" name="email" id="email"><br>
+
+            <!-- <label class="flex items-center justify-center" for="password">Password:</label> -->
+            <input class="flex border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg outline-none"
+                placeholder="Password" type="password" name="password" id="password"><br>
+
+
+            <!-- <label class="flex items-center justify-center" for="password">Retype Password:</label> -->
+            <input class="flex border-b-2 border-b-gray-400 py-2  w-full border-x-white mb-2 text-lg outline-none"
+                placeholder="Retype Password" type="password" name="password" id="password"><br>
+
+            <button
+                class="flex p-7 px-20 py-3 mx-auto mt-3 text-gray-300 hover:bg-red-600 hover:text-white border-2 border-gray-300 hover:border-red-600 shadow-sm text-justify items-center justify-end uppercase font-semibold"
+                placeholder="Password">GO</button><br>
+           <p class="text-center mt-3">
+            <a href="/src/Login.html" class="text-gray-400">Already Have An Account?<span class="text-red-600">Sign In</span>
+           </a>
+        </p>
+        </div>
+    </form>
+    <script src="StudyPath.js"></script>
+</body>
+
+</html>
